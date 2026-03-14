@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "mcp__playwright",
-      "Bash(npx prisma:*)"
+      "Bash(npx prisma:*)",
+      "Bash(claude mcp:*)"
     ],
     "deny": []
   }
