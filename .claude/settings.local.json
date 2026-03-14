@@ -3,7 +3,9 @@
     "allow": [
       "mcp__playwright",
       "Bash(npx prisma:*)",
-      "Bash(claude mcp:*)"
+      "Bash(claude mcp:*)",
+      "Bash(which gh:*)",
+      "Bash(git pull:*)"
     ],
     "deny": []
   }
