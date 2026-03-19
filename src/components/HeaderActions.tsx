@@ -81,6 +81,8 @@ export function HeaderActions({ user, projectId }: HeaderActionsProps) {
 
   const handleSignOut = async () => {
     await signOut();
+    router.push("/");
+    router.refresh();
   };
 
   const handleNewDesign = async () => {
