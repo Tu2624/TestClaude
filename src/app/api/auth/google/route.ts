@@ -10,6 +10,13 @@ function base64url(buffer: ArrayBuffer) {
 }
 
 export async function GET() {
+  if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
+    return NextResponse.json(
+      { error: "GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET must be set in .env" },
+      { status: 500 }
+    );
+  }
+
   const state = base64url(crypto.getRandomValues(new Uint8Array(32)).buffer);
   const codeVerifier = base64url(
     crypto.getRandomValues(new Uint8Array(32)).buffer

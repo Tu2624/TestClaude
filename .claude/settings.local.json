@@ -5,7 +5,8 @@
       "Bash(npx prisma:*)",
       "Bash(claude mcp:*)",
       "Bash(which gh:*)",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(gh pr:*)"
     ],
     "deny": []
   }
