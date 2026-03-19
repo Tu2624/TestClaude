@@ -78,9 +78,14 @@ Both providers are set up in `src/app/[projectId]/page.tsx` and `src/app/main-co
 
 Tests use Vitest + jsdom + React Testing Library. Test files live alongside source in `__tests__/` subdirectories. The vitest config (`vitest.config.mts`) uses `vite-tsconfig-paths` so `@/` path aliases resolve correctly.
 
+### System Prompt
+
+The AI generation system prompt lives in `src/lib/prompts/generation.tsx`. Modify this to change how Claude generates components — it controls conventions like file structure, styling approach, and component patterns.
+
 ### Environment Variables
 
 | Variable | Required | Description |
 |---|---|---|
 | `ANTHROPIC_API_KEY` | No | If absent, mock provider is used |
 | `JWT_SECRET` | No | Defaults to `"development-secret-key"` |
+| `DATABASE_URL` | No | Defaults to `file:./dev.db` (SQLite) |

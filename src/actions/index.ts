@@ -4,7 +4,6 @@ import bcrypt from "bcrypt";
 import { prisma } from "@/lib/prisma";
 import { createSession, deleteSession, getSession } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
 export interface AuthResult {
   success: boolean;
@@ -79,6 +78,9 @@ export async function signIn(
     }
 
     // Verify password
+    if (!user.password) {
+      return { success: false, error: "Invalid credentials" };
+    }
     const isValidPassword = await bcrypt.compare(password, user.password);
 
     if (!isValidPassword) {
@@ -99,7 +101,6 @@ export async function signIn(
 export async function signOut() {
   await deleteSession();
   revalidatePath("/");
-  redirect("/");
 }
 
 export async function getUser() {
